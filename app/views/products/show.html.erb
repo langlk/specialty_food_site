@@ -1,3 +1,4 @@
+<h5 class="back"><%= link_to "All Products", products_path %></h5>
 <h1><%= @product.name %></h1>
 <div class="product-options">
   <%= link_to "Edit", edit_product_path(@product) %> |
@@ -9,4 +10,4 @@
 <h3>$<%= @product.cost %></h3>
 <p>Country of Origin: <%= @product.origin %></p>
 <hr>
-<p><%= link_to "All Product Reviews", product_reviews_path(@product) %></p>
+<p><%= link_to "Product Reviews", product_reviews_path(@product) %></p>

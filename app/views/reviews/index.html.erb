@@ -1,9 +1,10 @@
+<h5 class="back"><%= link_to "Back to Product Detail", product_path(@product) %></h5>
+
 <h1>Reviews of <%= @product.name %></h1>
 
-<h5>
-  <%= link_to "Write a Review", new_product_review_path(@product) %> |
-  <%= link_to "Back to Product Detail", product_path(@product) %>
-</h5>
+<h4>
+  <%= link_to "Write a Review", new_product_review_path(@product) %>
+</h4>
 
 <% if @reviews.any? %>
   <div class="product-reviews">
