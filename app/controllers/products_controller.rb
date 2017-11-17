@@ -1,4 +1,9 @@
 class ProductsController < ApplicationController
+  def landing
+    @recent_products = Product.recent
+    @top_product = Product.most_reviewed
+  end
+
   def index
     @products = Product.all
   end

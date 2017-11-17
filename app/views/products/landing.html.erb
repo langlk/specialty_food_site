@@ -1,0 +1,35 @@
+<div class="jumbotron">
+  <h1>Landing Page!</h1>
+</div>
+
+<h2>Our Products</h2>
+<div class="featured">
+  <div class="all-products">
+    <h4><%= link_to "All Products", products_path %></h4>
+    <p>Browse through our complete inventory.</p>
+  </div>
+  <% if @top_product %>
+    <div class="top-product">
+      <h5>Most Reviewed</h5>
+      <h3><%= link_to @top_product.name, product_path(@top_product) %></h3>
+      <p>Origin: <%= @top_product.origin %></p>
+      <h4>$<%= @top_product.cost %></h4>
+    </div>
+  <% end %>
+
+  <% if @recent_products.any? %>
+    <div class="recent-products">
+      <h5>Recently Added</h5>
+      <% @recent_products.each do |product| %>
+        <h4><%= link_to product.name, product_path(product) %></h4>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="about">
+  <h3>About</h3>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+</div>
