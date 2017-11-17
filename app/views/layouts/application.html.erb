@@ -27,7 +27,11 @@
       </div>
       <% end %>
 
-      <%= yield %>
+      <div class="page-contents">
+        <%= yield %>
+      </div>
+
+      <p class="footer"><%= link_to "Home", root_path %> | <%= link_to "Products", products_path %> </p>
     </div>
   </body>
 </html>
