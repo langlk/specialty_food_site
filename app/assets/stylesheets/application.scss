@@ -4,15 +4,50 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  background-color: #fff4f1;
 }
 
 h1, h2 {
   font-family: 'Poiret One', sans-serif;
 }
 
+.jumbotron {
+  background-color: #75253b;
+}
+
+.jumbotron h1 {
+  color: #ecd1ca;
+}
+
+a {
+  color: #b94969;
+}
+
+a:hover {
+  color: #e29baf;
+}
+
+.btn {
+  background-color: #615055;
+  color: #e2d1cd;
+}
+
+.btn:hover {
+  background-color: #987d85;
+  color: #fff3f1;
+}
+
+.page-header, .panel-default, .panel-default .panel-heading, .form-control {
+  border-color: #e2d1cd;
+}
+
+.panel-default .panel-heading {
+  background-color: #f3e5e1;
+}
+
 .landing {
   padding-bottom: 9px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #e2d1cd;
 }
 
 .container {
@@ -108,4 +143,8 @@ h1, h2 {
 .product {
   margin: .5em;
   width: 120px;
+}
+
+.review-author {
+  color: #927d83;
 }
