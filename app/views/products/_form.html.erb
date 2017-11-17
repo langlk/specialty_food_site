@@ -1,0 +1,15 @@
+<%= form_for @product do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: "control-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cost, class: "control-label" %>
+    <%= f.number_field :cost, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :origin, class: "control-label" %>
+    <%= f.text_field :origin, class: "form-control" %>
+  </div>
+  <%= f.submit class: "btn" %>
+<% end %>

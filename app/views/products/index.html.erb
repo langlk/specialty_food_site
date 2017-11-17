@@ -1,0 +1,13 @@
+<h1>Products</h1>
+<h5><%= link_to "Add a Product", new_product_path %></h5>
+<% if @products.any? %>
+  <div class="products-list">
+    <% @products.each do |product| %>
+      <div class="product">
+        <%= link_to product.name, product_path(product) %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <h3>There are no products saved.</h3>
+<% end %>
