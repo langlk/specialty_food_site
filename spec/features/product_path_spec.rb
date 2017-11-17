@@ -26,7 +26,6 @@ describe "the product management path" do
     visit product_path(product)
     click_link "Delete"
     visit products_path
-    save_and_open_page
     expect(page).to have_no_content("New Product")
   end
 
