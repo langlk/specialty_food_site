@@ -1,12 +1,13 @@
 <% content_for(:title, "#{@product.name} | Reviews") %>
 <div class="page-header">
   <h5 class="back"><%= link_to "Back to Product Detail", product_path(@product) %></h5>
+  <div class="flex-header">
+    <h1>Reviews of <%= @product.name %></h1>
 
-  <h1>Reviews of <%= @product.name %></h1>
-
-  <h4>
-    <%= link_to "Write a Review", new_product_review_path(@product) %>
-  </h4>
+    <h4>
+      <%= link_to "Write a Review", new_product_review_path(@product) %>
+    </h4>
+  </div>
 </div>
 
 
@@ -14,7 +15,7 @@
   <div class="product-reviews">
     <% @reviews.each do |review| %>
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading flex-header">
           <span class="product-rating">
             <%= review.rating %> out of 5
           </span>
