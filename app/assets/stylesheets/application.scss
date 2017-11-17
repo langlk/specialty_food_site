@@ -33,6 +33,10 @@ h1, h2 {
   margin-bottom: 2em;
 }
 
+.panel.panel-default, #jumbotron {
+  border-radius: 0px;
+}
+
 .alert, .back {
   margin-top: 1.5em;
 }

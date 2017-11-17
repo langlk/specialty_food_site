@@ -1,6 +1,6 @@
 <% content_for(:title, "Mario's Foods") %>
 
-<div class="jumbotron">
+<div class="jumbotron" id="jumbotron">
   <h1>Mario's Specialty Foods</h1>
 </div>
 
@@ -10,7 +10,7 @@
     <h4><%= link_to "All Products", products_path %></h4>
     <p>Browse through our complete inventory.</p>
   </div>
-  
+
   <% if @top_product %>
     <div class="top-product">
       <h5>Most Reviewed</h5>
