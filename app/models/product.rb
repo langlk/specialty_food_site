@@ -11,4 +11,15 @@ class Product < ActiveRecord::Base
     .first
   )}
   scope :usa_made, -> { where(origin: "United States of America") }
+
+  def rating
+    if self.reviews.any?
+      rating_total = self.reviews.reduce(0) do |total, review|
+        total + review.rating
+      end
+      return rating_total.to_f / self.reviews.length
+    else
+      return nil
+    end
+  end
 end

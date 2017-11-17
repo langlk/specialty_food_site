@@ -13,7 +13,12 @@
     </h4>
   </div>
 </div>
+
 <h3>$<%= @product.cost %></h3>
-<p>Country of Origin: <%= @product.origin %></p>
-<hr>
-<p><%= link_to "Product Reviews", product_reviews_path(@product) %></p>
+<p><strong>Country of Origin:</strong> <%= @product.origin %></p>
+<% if @product.rating %>
+  <h4>Rated <%= @product.rating.round(1) %> out of 5</h4>
+  <p><%= link_to "See all Product Reviews", product_reviews_path(@product) %></p>
+<% else %>
+  <p>This product has no reviews. <%= link_to "Be the first to write one.", new_product_review_path(@product) %></p>
+<% end %>
