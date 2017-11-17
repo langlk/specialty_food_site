@@ -1,9 +1,15 @@
-<h1>Products</h1>
-<h5><%= link_to "Add a Product", new_product_path %></h5>
+<% content_for(:title, 'Products') %>
+
+<div class="page-header">
+  <h1>Products</h1>
+  <h4><%= link_to "Add a Product", new_product_path %></h4>
+
   <%= form_tag('/products', method: 'get') do %>
-  <%= select_tag(:method, options_for_select([["All Products", "all"], ["US Products Only", "us"]], @method), class: "form-control product-filter") %>
-  <%= submit_tag("Apply", class: "btn filter-button") %>
-<% end %>
+    <%= select_tag(:method, options_for_select([["All Products", "all"], ["US Products Only", "us"]], @method), class: "form-control product-filter") %>
+    <%= submit_tag("Apply", class: "btn filter-button") %>
+  <% end %>
+</div>
+
 <% if @products.any? %>
   <div class="products-list">
     <% @products.each do |product| %>

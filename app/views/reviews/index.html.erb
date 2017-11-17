@@ -1,10 +1,14 @@
-<h5 class="back"><%= link_to "Back to Product Detail", product_path(@product) %></h5>
+<% content_for(:title, "#{@product.name} | Reviews") %>
+<div class="page-header">
+  <h5 class="back"><%= link_to "Back to Product Detail", product_path(@product) %></h5>
 
-<h1>Reviews of <%= @product.name %></h1>
+  <h1>Reviews of <%= @product.name %></h1>
 
-<h4>
-  <%= link_to "Write a Review", new_product_review_path(@product) %>
-</h4>
+  <h4>
+    <%= link_to "Write a Review", new_product_review_path(@product) %>
+  </h4>
+</div>
+
 
 <% if @reviews.any? %>
   <div class="product-reviews">
