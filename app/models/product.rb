@@ -10,4 +10,5 @@ class Product < ActiveRecord::Base
     .order("reviews_count DESC")
     .first
   )}
+  scope :usa_made, -> { where(origin: "United States of America") }
 end

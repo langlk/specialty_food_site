@@ -41,4 +41,13 @@ describe Product do
       expect(Product.most_reviewed).to eq(p2)
     end
   end
+
+  describe '.usa_made' do
+    it "should return all products of USA origin" do
+      p1 = Product.create(name: "Test1", cost: 1, origin: "United States of America")
+      p2 = Product.create(name: "Test2", cost: 2, origin: "Test2")
+      p3 = Product.create(name: "Test3", cost: 1, origin: "United States of America")
+      expect(Product.usa_made).to eq([p1, p3])
+    end
+  end
 end
