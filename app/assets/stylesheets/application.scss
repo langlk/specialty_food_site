@@ -10,3 +10,14 @@
 .featured > div {
   width: 32%;
 }
+
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product {
+  margin: .5em;
+  width: 120px;
+}

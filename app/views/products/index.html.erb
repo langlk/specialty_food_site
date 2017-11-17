@@ -3,8 +3,11 @@
 <% if @products.any? %>
   <div class="products-list">
     <% @products.each do |product| %>
-      <div class="product">
-        <%= link_to product.name, product_path(product) %>
+      <div class="product panel panel-default">
+        <div class="panel-body">
+          <p><%= link_to product.name, product_path(product) %></p>
+          <p>$<%= product.cost %></p>
+        </div>
       </div>
     <% end %>
   </div>
