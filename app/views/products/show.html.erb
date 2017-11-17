@@ -2,6 +2,7 @@
 
 <div class="page-header">
   <h5 class="back"><%= link_to "All Products", products_path %></h5>
+
   <div class="flex-header">
     <h1><%= @product.name %></h1>
     <h4 class="product-options">
@@ -15,10 +16,12 @@
 </div>
 
 <h3>$<%= @product.cost %></h3>
+
 <p><strong>Country of Origin:</strong> <%= @product.origin %></p>
+
 <% if @product.rating %>
   <h4>Rated <%= @product.rating.round(1) %> out of 5</h4>
-  <p><%= link_to "See all Product Reviews", product_reviews_path(@product) %></p>
+  <p><%= link_to "See Product Reviews", product_reviews_path(@product) %></p>
 <% else %>
   <p>This product has no reviews. <%= link_to "Be the first to write one.", new_product_review_path(@product) %></p>
 <% end %>
