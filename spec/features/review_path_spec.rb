@@ -6,7 +6,7 @@ describe "the review management path" do
     visit product_reviews_path(product)
     click_link "Write a Review"
     fill_in "Author", with: "Test"
-    fill_in "Rating", with: 5
+    fill_in "review_rating", with: 5
     fill_in "review_content_body", with: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat."
     click_on "Create Review"
     expect(page).to have_content("Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.")
