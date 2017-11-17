@@ -37,6 +37,13 @@ h1, h2 {
   margin-top: 1.5em;
 }
 
+.flex-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
 .featured {
   display: flex;
   flex-wrap: wrap;
@@ -47,9 +54,26 @@ h1, h2 {
   width: 32%;
 }
 
+.products-header {
+  display: flex;
+  align-items: flex-end;
+}
+
+.products-header form {
+  margin-bottom: 10px;
+  margin-left: .5em;
+}
+
 .product-filter {
   width: 150px;
+  height: 25px;
   display: inline-block;
+}
+
+.filter-button {
+  vertical-align: top;
+  padding:  0px 3px;
+  height: 24px;
 }
 
 .products-list {
