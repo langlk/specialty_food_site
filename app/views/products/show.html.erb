@@ -8,3 +8,5 @@
 </div>
 <h3>$<%= @product.cost %></h3>
 <p>Country of Origin: <%= @product.origin %></p>
+<hr>
+<p><%= link_to "All Product Reviews", product_reviews_path(@product) %></p>

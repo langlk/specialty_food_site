@@ -1,0 +1,33 @@
+<h1>Reviews of <%= @product.name %></h1>
+
+<h5>
+  <%= link_to "Write a Review", new_product_review_path(@product) %> |
+  <%= link_to "Back to Product Detail", product_path(@product) %>
+</h5>
+
+<% if @reviews.any? %>
+  <div class="product-reviews">
+    <% @reviews.each do |review| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="product-rating">
+            <%= review.rating %> out of 5
+          </span>
+          <span class="product-options">
+            <%= link_to "Edit", edit_product_review_path(@product, review) %> |
+            <%= link_to "Delete", product_review_path(@product, review), data: {
+              confirm: "This will permanently delete this review. Are you sure?",
+              method: "delete"
+            } %>
+          </span>
+        </div>
+        <div class="panel-body">
+          <p>"<%= review.content_body %>"</p>
+          <p class="review-author">-<%= review.author %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <h3>There are no reviews of this product.</h3>
+<% end %>
