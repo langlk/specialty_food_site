@@ -35,7 +35,8 @@ _This is a mock website for an online food supplier. It allows users to create, 
 * Reviews
   * Users can see a review's author, rating, and content
   * Users can create, read, update, and destroy reviews for a product
-
+* Database
+  * The database can be seeded with example data provided by [Faker](https://github.com/stympy/faker) by running ```rake db:seed```
 ## Support and contact details
 
 _Please contact [kels.langlois@gmail.com](mailto:kels.langlois@gmail.com) with questions, comments, or issues._
