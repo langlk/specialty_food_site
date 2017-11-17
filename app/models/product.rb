@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   has_many :reviews
   validates :name, :cost, :origin, presence: true
+  validates :cost, numericality: { greater_than: 0 }
 
   scope :recent, -> { order(created_at: :desc).limit(3) }
   scope :most_reviewed, -> {(
