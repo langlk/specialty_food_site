@@ -1,5 +1,9 @@
 <h1>Products</h1>
 <h5><%= link_to "Add a Product", new_product_path %></h5>
+  <%= form_tag('/products', method: 'get') do %>
+  <%= select_tag(:method, options_for_select([["All Products", "all"], ["US Products Only", "us"]], @method), class: "form-control product-sort") %>
+  <%= submit_tag("Sort", class: "btn") %>
+<% end %>
 <% if @products.any? %>
   <div class="products-list">
     <% @products.each do |product| %>

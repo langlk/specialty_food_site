@@ -5,7 +5,12 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @method = params[:method]
+    if @method == "us"
+      @products = Product.usa_made
+    else
+      @products = Product.all
+    end
   end
 
   def show
