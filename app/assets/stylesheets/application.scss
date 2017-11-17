@@ -1,2 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.featured {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.featured > div {
+  width: 32%;
+}
