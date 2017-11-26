@@ -23,22 +23,9 @@ describe Product do
       p1 = FactoryBot.create(:product)
       p2 = FactoryBot.create(:product)
       p3 = FactoryBot.create(:product)
-
-      p2.reviews.create(
-        author: "Test1",
-        content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.",
-        rating: 3
-      )
-      p2.reviews.create(
-        author: "Test2",
-        content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.",
-        rating: 4
-      )
-      p1.reviews.create(
-        author: "Test3",
-        content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.",
-        rating: 3
-      )
+      FactoryBot.create(:review, product_id: p2.id)
+      FactoryBot.create(:review, product_id: p2.id)
+      FactoryBot.create(:review, product_id: p1.id)
       expect(Product.most_reviewed).to eq(p2)
     end
   end
@@ -55,21 +42,9 @@ describe Product do
   describe '#rating' do
     it "returns the average rating of a product" do
       p1 = FactoryBot.create(:product)
-      p1.reviews.create(
-        author: "Test1",
-        content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.",
-        rating: 3
-      )
-      p1.reviews.create(
-        author: "Test2",
-        content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.",
-        rating: 4
-      )
-      p1.reviews.create(
-        author: "Test3",
-        content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.",
-        rating: 2
-      )
+      FactoryBot.create(:review, product_id: p1.id, rating: 3)
+      FactoryBot.create(:review, product_id: p1.id, rating: 4)
+      FactoryBot.create(:review, product_id: p1.id, rating: 2)
       expect(p1.rating).to eq(3)
     end
   end
