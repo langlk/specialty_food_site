@@ -31,10 +31,19 @@ describe "the review management path" do
     expect(page).to have_no_content("Anonymous")
   end
 
-  it "displays errors if review form is not correctly completed" do
+  it "displays errors if new review form is not correctly completed" do
     product = Product.create(name: "New Product", cost: 5, origin: "United States of America")
     visit new_product_review_path(product)
     click_on("Create Review")
+    expect(page).to have_content("Something went wrong!")
+  end
+
+  it "displays errors if review edit form is not correctly completed" do
+    product = Product.create(name: "New Product", cost: 5, origin: "United States of America")
+    review = product.reviews.create(author: "Anonymous", rating: 4, content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.")
+    visit edit_product_review_path(product, review)
+    fill_in "Author", with: ""
+    click_on("Update Review")
     expect(page).to have_content("Something went wrong!")
   end
 end
