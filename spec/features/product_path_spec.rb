@@ -76,6 +76,5 @@ describe "the product management path" do
     expect(page).to have_content("New Product 4")
     expect(page).to have_content("New Product 3")
     expect(page).to have_content("New Product 2")
-    expect(page).to have_no_content("New Product 1.5")
   end
 end

@@ -10,19 +10,19 @@ describe Product do
 
   describe '.recent' do
     it "should return the 3 most recently added products" do
-      p1 = Product.create(name: "Test1", cost: 1, origin: "Test1")
-      p2 = Product.create(name: "Test2", cost: 2, origin: "Test2")
-      p3 = Product.create(name: "Test3", cost: 1, origin: "Test3")
-      p4 = Product.create(name: "Test4", cost: 1, origin: "Test4")
+      p1 = FactoryGirl.create(:product)
+      p2 = FactoryGirl.create(:product)
+      p3 = FactoryGirl.create(:product)
+      p4 = FactoryGirl.create(:product)
       expect(Product.recent).to eq([p4, p3, p2])
     end
   end
 
   describe '.most_reviewed' do
     it "should return the product with the most reviews" do
-      p1 = Product.create(name: "Test1", cost: 1, origin: "Test1")
-      p2 = Product.create(name: "Test2", cost: 2, origin: "Test2")
-      p3 = Product.create(name: "Test3", cost: 1, origin: "Test3")
+      p1 = FactoryGirl.create(:product)
+      p2 = FactoryGirl.create(:product)
+      p3 = FactoryGirl.create(:product)
 
       p2.reviews.create(
         author: "Test1",
@@ -45,16 +45,16 @@ describe Product do
 
   describe '.usa_made' do
     it "should return all products of USA origin" do
-      p1 = Product.create(name: "Test1", cost: 1, origin: "United States of America")
-      p2 = Product.create(name: "Test2", cost: 2, origin: "Test2")
-      p3 = Product.create(name: "Test3", cost: 1, origin: "United States of America")
+      p1 = FactoryGirl.create(:product)
+      p2 = FactoryGirl.create(:product, origin: "Canada")
+      p3 = FactoryGirl.create(:product)
       expect(Product.usa_made).to eq([p1, p3])
     end
   end
 
   describe '#rating' do
     it "returns the average rating of a product" do
-      p1 = Product.create(name: "Test1", cost: 1, origin: "United States of America")
+      p1 = FactoryGirl.create(:product)
       p1.reviews.create(
         author: "Test1",
         content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.",

@@ -21,6 +21,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'simplecov', require: false
+  gem "factory_girl_rails"
 end
 
 group :development do
