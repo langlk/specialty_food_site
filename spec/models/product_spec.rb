@@ -51,4 +51,26 @@ describe Product do
       expect(Product.usa_made).to eq([p1, p3])
     end
   end
+
+  describe '#rating' do
+    it "returns the average rating of a product" do
+      p1 = Product.create(name: "Test1", cost: 1, origin: "United States of America")
+      p1.reviews.create(
+        author: "Test1",
+        content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.",
+        rating: 3
+      )
+      p1.reviews.create(
+        author: "Test2",
+        content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.",
+        rating: 4
+      )
+      p1.reviews.create(
+        author: "Test3",
+        content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.",
+        rating: 2
+      )
+      expect(p1.rating).to eq(3)
+    end
+  end
 end
