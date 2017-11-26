@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "the review management path" do
   it "allows a user to create a new review" do
-    product = Product.create(name: "New Product", cost: 5, origin: "United States of America")
+    product = FactoryBot.create(:product)
     visit product_reviews_path(product)
     click_link "Write a Review"
     fill_in "Author", with: "Test"
@@ -13,8 +13,8 @@ describe "the review management path" do
   end
 
   it "allows user to edit a review" do
-    product = Product.create(name: "New Product", cost: 5, origin: "United States of America")
-    review = product.reviews.create(author: "Anonymous", rating: 4, content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.")
+    product = FactoryBot.create(:product)
+    review = FactoryBot.create(:review, product_id: product.id)
     visit edit_product_review_path(product, review)
     fill_in "Author", with: "Bob Bobbington"
     click_on "Update Review"
@@ -23,8 +23,8 @@ describe "the review management path" do
   end
 
   it "allows user to delete a review" do
-    product = Product.create(name: "New Product", cost: 5, origin: "United States of America")
-    review = product.reviews.create(author: "Anonymous", rating: 4, content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.")
+    product = FactoryBot.create(:product)
+    review = FactoryBot.create(:review, product_id: product.id)
     visit product_reviews_path(product)
     click_on "Delete"
     visit product_reviews_path(product)
@@ -32,15 +32,15 @@ describe "the review management path" do
   end
 
   it "displays errors if new review form is not correctly completed" do
-    product = Product.create(name: "New Product", cost: 5, origin: "United States of America")
+    product = FactoryBot.create(:product)
     visit new_product_review_path(product)
     click_on("Create Review")
     expect(page).to have_content("Something went wrong!")
   end
 
   it "displays errors if review edit form is not correctly completed" do
-    product = Product.create(name: "New Product", cost: 5, origin: "United States of America")
-    review = product.reviews.create(author: "Anonymous", rating: 4, content_body: "Lorem ipsum dolor sit amet, consectetur adipiscing volutpat.")
+    product = FactoryBot.create(:product)
+    review = FactoryBot.create(:review, product_id: product.id)
     visit edit_product_review_path(product, review)
     fill_in "Author", with: ""
     click_on("Update Review")
