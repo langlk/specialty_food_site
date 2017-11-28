@@ -15,7 +15,7 @@ products = []
 50.times do
   products.push(Product.create!(
     name: Faker::Food.ingredient,
-    cost: prng.rand(100),
+    cost: prng.rand(1..100),
     origin: Faker::Address.country
   ))
 end
